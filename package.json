@@ -1,6 +1,6 @@
 {
   "name": "conventional-keys",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Keyboard-triggered autocomplete for conventional PR comments on GitHub.",
   "main": "content.js",
   "scripts": {
