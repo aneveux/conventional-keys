@@ -24,9 +24,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install dependencies
-        run: npm ci
-
       # Generate release notes (Release Drafter inline)
       - name: Generate release notes
         id: notes
