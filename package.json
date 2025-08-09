@@ -1,0 +1,19 @@
+{
+  "name": "conventional-keys",
+  "version": "1.0.0",
+  "description": "Keyboard-triggered autocomplete for conventional PR comments on GitHub.",
+  "main": "content.js",
+  "scripts": {
+    "lint": "eslint . --ext .js --max-warnings=0 || true",
+    "package": "node package.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aneveux/conventional-keys"
+  },
+  "author": "Antoine Neveux",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^9.33.0"
+  }
+}

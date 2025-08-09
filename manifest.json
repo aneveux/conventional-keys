@@ -1,0 +1,37 @@
+{
+  "manifest_version": 3,
+  "name": "Conventional Keys",
+  "version": "1.0.0",
+  "description": "Keyboard-triggered autocomplete for conventional PR comments on GitHub.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://github.com/*",
+    "*://*.github.com/*"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://github.com/*",
+        "*://*.github.com/*"
+      ],
+      "exclude_matches": [
+        "*://github.com/login*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "style.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
