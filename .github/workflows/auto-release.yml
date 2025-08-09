@@ -28,8 +28,6 @@ jobs:
       - name: Generate release notes
         id: notes
         uses: release-drafter/release-drafter@v6
-        with:
-          config-name: inline
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
