@@ -34,7 +34,7 @@
       "run_at": "document_idle"
     }
   ],
-  "applications": {
+  "browser_specific_settings": {
     "gecko": {
       "id": "conventional-keys@neveux.me"
     }
