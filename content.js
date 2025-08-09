@@ -107,6 +107,25 @@ function cancelAndHide() {
   hidePopup();
 }
 
+function setKeywordListItemContent(li, key, desc, decoratorFormat = false) {
+  li.textContent = '';
+
+  const strong = document.createElement('strong');
+  strong.textContent = decoratorFormat ? '(' + key + ')' : '/' + key;
+  li.appendChild(strong);
+
+  li.appendChild(document.createTextNode(' — '));
+
+  const span = document.createElement('span');
+  span.className = 'ck-desc';
+
+  const em = document.createElement('em');
+  em.textContent = desc;
+
+  span.appendChild(em);
+  li.appendChild(span);
+}
+
 /* Render keyword list (filter only on keyword) */
 function renderKeywordList(filter) {
   const list = document.getElementById(POPUP_LIST_ID);
@@ -123,7 +142,7 @@ function renderKeywordList(filter) {
     li.dataset.key = m.key;
     li.className = idx === 0 ? 'ck-item ck-highlight' : 'ck-item';
     // Show definition as italic, but DO NOT use it in matching
-    li.innerHTML = '<strong>/' + escapeHtml(m.key) + '</strong> — <span class="ck-desc"><em>' + escapeHtml(m.desc) + '</em></span>';
+    setKeywordListItemContent(li, m.key, m.desc, false);
     li.addEventListener('click', () => onKeywordChosen(m.key));
     li.addEventListener('keydown', (ev) => {
       if (ev.key === 'Enter') onKeywordChosen(m.key);
@@ -166,7 +185,7 @@ function renderDecoratorList(filter) {
     li.tabIndex = 0;
     li.dataset.key = m.key;
     li.className = idx === 0 ? 'ck-item ck-highlight' : 'ck-item';
-    li.innerHTML = '<strong>(' + escapeHtml(m.key) + ')</strong> — <span class="ck-desc"><em>' + escapeHtml(m.desc) + '</em></span>';
+    setKeywordListItemContent(li, m.key, m.desc, true);
     li.addEventListener('click', () => onDecoratorChosen(m.key));
     li.addEventListener('keydown', (ev) => {
       if (ev.key === 'Enter') onDecoratorChosen(m.key);
