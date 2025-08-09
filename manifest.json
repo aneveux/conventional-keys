@@ -33,5 +33,10 @@
       ],
       "run_at": "document_idle"
     }
-  ]
+  ],
+  "applications": {
+    "gecko": {
+      "id": "conventional-keys@neveux.me"
+    }
+  }
 }
