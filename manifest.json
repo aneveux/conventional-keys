@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Conventional Keys",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Keyboard-triggered autocomplete for conventional PR comments on GitHub.",
   "permissions": [
     "activeTab",
