@@ -283,8 +283,19 @@ function onKeyDown(ev) {
   const tgt = ev.target;
   if (!isEditable(tgt)) return;
   if (ev.key === TRIGGER_KEY && !ev.ctrlKey && !ev.metaKey && !ev.altKey) {
-    ev.preventDefault();
-    showPopup(tgt);
+    // Only show popup if the element is empty
+    let isEmpty = false;
+    if (tgt.tagName && tgt.tagName.toLowerCase() === 'textarea') {
+      isEmpty = (tgt.value || '').length === 0;
+    } else if (tgt.isContentEditable) {
+      isEmpty = (tgt.textContent || '').length === 0;
+    }
+
+    if (isEmpty) {
+      ev.preventDefault();
+      showPopup(tgt);
+    }
+    // If not empty, let the '/' character be typed normally (don't preventDefault)
   }
   if (ev.key === 'Escape') cancelAndHide();
 }
